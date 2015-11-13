@@ -12,7 +12,6 @@ import MobileCoreServices
 
 private let REPLAY_VC = "ReplayVC"
 
-
 @IBDesignable
 class CaptureController: UIViewController {
     
@@ -23,14 +22,14 @@ class CaptureController: UIViewController {
     //MARK: - @IBOutlets
     @IBOutlet weak var liveView: UIView!
     @IBOutlet weak var recordStatusView: RecordStatus!
-    @IBOutlet weak var switchCameraButton: UIButton!
     @IBOutlet weak var captureProgressView: CaptureProgress!
-    @IBOutlet weak var captureProgressInner: UIView!
     
     let hasCamera = UIImagePickerController.isSourceTypeAvailable(.Camera)
     
-    override func viewDidLoad() {
+    override func viewDidLoad(){
         super.viewDidLoad()
+        
+        captureProgressView.hidden = true
         
         guard hasCamera else { return }
         
@@ -40,8 +39,7 @@ class CaptureController: UIViewController {
         picker.delegate = self
         
         recordStatusView.layer.cornerRadius = recordStatusView.frame.width / 2
-        captureProgressInner.layer.cornerRadius = captureProgressInner.frame.height
-//        switchCameraButton.layer.cornerRadius = switchCameraButton.frame.width / 2
+
         
         view.layoutIfNeeded()
         
@@ -56,16 +54,16 @@ class CaptureController: UIViewController {
     }
     
     var captureTime:Double = 0.0
+    let maxCaptureTime: Double = 10.0
     var isCapturing = false
     
     func updateCaptureTime() {
-        captureTime += 0.01
-        captureProgressInner.frame.size.height += 0.10
-        captureProgressInner.frame.size.width += 0.10
-        print(captureProgressInner.frame.size.width)
-        captureProgressInner.layer.cornerRadius = captureProgressView.frame.size.height / 2
+        captureTime += 0.05
         
-        if captureTime >= 10 {
+        captureProgressView.progressAmount = CGFloat(captureTime / maxCaptureTime) * 100 
+        print(captureProgressView.progressAmount)
+        
+        if captureTime >= maxCaptureTime {
             endCapture()
 
         }
@@ -78,30 +76,33 @@ class CaptureController: UIViewController {
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        if captureTime < 1 { captureTime = 0 } else { return }
+        
+        moveProgress(touches)
         isCapturing = true
         recordStatusView.isRecording = true
-        captureProgressView.hidden = false
-        captureProgressInner.hidden = false 
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: "updateCaptureTime", userInfo: nil, repeats: true)
+
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.05, target: self, selector: "updateCaptureTime", userInfo: nil, repeats: true)
         picker.startVideoCapture()
         print("worked")
         
     }
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        for touch in touches {
-            let translation = touch.locationInView(view)
-            captureProgressView.center = CGPoint(x: translation.x, y: translation.y)
-            captureProgressInner.center = CGPoint(x: translation.x, y: translation.y)
-            
-        }
+        moveProgress(touches)
         
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        captureProgressView.hidden = true
         endCapture()
+        
+    }
+    
+    func moveProgress(touches: Set<UITouch>) {
+        guard let touch = touches.first else { return }
         captureProgressView.hidden = false
-
+        captureProgressView.center = touch.locationInView(view)
         
     }
     
@@ -112,8 +113,6 @@ class CaptureController: UIViewController {
         timer?.invalidate()
         timer = nil
         recordStatusView.backgroundColor = UIColor.lightGrayColor()
-
-
         
         guard hasCamera else { return }
         picker.stopVideoCapture()
@@ -123,7 +122,6 @@ class CaptureController: UIViewController {
 }
 
 extension CaptureController : UIImagePickerControllerDelegate {
-    
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         guard captureTime > 1 else { return }
         

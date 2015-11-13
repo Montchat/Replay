@@ -22,38 +22,19 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view alpha="0.5" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EUW-Fq-bJt" customClass="CaptureProgress" customModule="Replay" customModuleProvider="target">
-                                <rect key="frame" x="250" y="250" width="100" height="100"/>
-                                <subviews>
-                                    <view alpha="0.75" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pzz-kJ-YzH">
-                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                                        <color key="backgroundColor" red="1" green="0.1100805916" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" red="0.021543560606060552" green="0.020232502103659001" blue="0.020354506472929548" alpha="1" colorSpace="calibratedRGB"/>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bcd-A5-Dc5" customClass="CaptureProgress" customModule="Replay" customModuleProvider="target">
+                                <rect key="frame" x="230" y="230" width="140" height="140"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="Pzz-kJ-YzH" firstAttribute="centerX" secondItem="EUW-Fq-bJt" secondAttribute="centerX" id="0DN-8w-ltq"/>
-                                    <constraint firstItem="Pzz-kJ-YzH" firstAttribute="leading" secondItem="EUW-Fq-bJt" secondAttribute="leading" id="DKw-qq-Xf6"/>
-                                    <constraint firstAttribute="width" secondItem="EUW-Fq-bJt" secondAttribute="height" multiplier="1:1" id="HBj-Hd-PJT"/>
-                                    <constraint firstAttribute="trailing" secondItem="Pzz-kJ-YzH" secondAttribute="trailing" id="K8u-YM-DML"/>
-                                    <constraint firstItem="Pzz-kJ-YzH" firstAttribute="centerY" secondItem="EUW-Fq-bJt" secondAttribute="centerY" id="NCN-sF-GHL"/>
-                                    <constraint firstItem="Pzz-kJ-YzH" firstAttribute="top" secondItem="EUW-Fq-bJt" secondAttribute="top" id="ePr-o5-Vrq"/>
-                                    <constraint firstAttribute="height" constant="100" id="ge2-r8-ksm"/>
-                                    <constraint firstAttribute="bottom" secondItem="Pzz-kJ-YzH" secondAttribute="bottom" id="mEg-ID-aeE"/>
-                                    <constraint firstAttribute="width" constant="100" id="nbG-XW-UlU"/>
+                                    <constraint firstAttribute="height" constant="140" id="4Sc-Mz-ehM"/>
+                                    <constraint firstAttribute="width" constant="140" id="Ts9-pY-76E"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="50"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="progressAmount">
+                                        <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="strokeColor">
-                                        <color key="value" red="0.9632222947061938" green="1" blue="0.95681030974561876" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="1" green="0.98246020980000004" blue="0.98332442760000005" alpha="1" colorSpace="calibratedRGB"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="progressColor">
+                                        <color key="value" red="1" green="0.1100805916" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -69,6 +50,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Bcd-A5-Dc5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GL6-GW-kFy"/>
+                            <constraint firstItem="Bcd-A5-Dc5" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="TcJ-9J-kq2"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="2NF-Dr-ggt" secondAttribute="bottom" id="WKY-4P-eVT"/>
                             <constraint firstItem="2NF-Dr-ggt" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="eBH-R4-CJt"/>
                             <constraint firstItem="2NF-Dr-ggt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="f0q-Lp-v3z"/>
@@ -79,8 +62,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="WFI-HO-yQx"/>
                     <connections>
-                        <outlet property="captureProgressInner" destination="Pzz-kJ-YzH" id="1lY-7q-50M"/>
-                        <outlet property="captureProgressView" destination="EUW-Fq-bJt" id="R61-f0-Ndp"/>
+                        <outlet property="captureProgressView" destination="Bcd-A5-Dc5" id="Zrh-VJ-Imf"/>
                         <outlet property="liveView" destination="2NF-Dr-ggt" id="ZiZ-Ch-Uxy"/>
                         <outlet property="recordStatusView" destination="cEe-Zj-r1H" id="RAq-IJ-jiw"/>
                     </connections>
