@@ -10,8 +10,6 @@ import UIKit
 
 @IBDesignable class Scrubber: UIView {
     
-    
-    
     override func drawRect(rect: CGRect) {
         // Drawing code
     }

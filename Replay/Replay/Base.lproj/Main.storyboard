@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="yF5-hi-wwa">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -23,9 +22,44 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cEe-Zj-r1H">
-                                <rect key="frame" x="8" y="552" width="40" height="40"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <view alpha="0.5" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EUW-Fq-bJt" customClass="CaptureProgress" customModule="Replay" customModuleProvider="target">
+                                <rect key="frame" x="250" y="250" width="100" height="100"/>
+                                <subviews>
+                                    <view alpha="0.75" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pzz-kJ-YzH">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                        <color key="backgroundColor" red="1" green="0.1100805916" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.021543560606060552" green="0.020232502103659001" blue="0.020354506472929548" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Pzz-kJ-YzH" firstAttribute="centerX" secondItem="EUW-Fq-bJt" secondAttribute="centerX" id="0DN-8w-ltq"/>
+                                    <constraint firstItem="Pzz-kJ-YzH" firstAttribute="leading" secondItem="EUW-Fq-bJt" secondAttribute="leading" id="DKw-qq-Xf6"/>
+                                    <constraint firstAttribute="width" secondItem="EUW-Fq-bJt" secondAttribute="height" multiplier="1:1" id="HBj-Hd-PJT"/>
+                                    <constraint firstAttribute="trailing" secondItem="Pzz-kJ-YzH" secondAttribute="trailing" id="K8u-YM-DML"/>
+                                    <constraint firstItem="Pzz-kJ-YzH" firstAttribute="centerY" secondItem="EUW-Fq-bJt" secondAttribute="centerY" id="NCN-sF-GHL"/>
+                                    <constraint firstItem="Pzz-kJ-YzH" firstAttribute="top" secondItem="EUW-Fq-bJt" secondAttribute="top" id="ePr-o5-Vrq"/>
+                                    <constraint firstAttribute="height" constant="100" id="ge2-r8-ksm"/>
+                                    <constraint firstAttribute="bottom" secondItem="Pzz-kJ-YzH" secondAttribute="bottom" id="mEg-ID-aeE"/>
+                                    <constraint firstAttribute="width" constant="100" id="nbG-XW-UlU"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="strokeColor">
+                                        <color key="value" red="0.9632222947061938" green="1" blue="0.95681030974561876" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="1" green="0.98246020980000004" blue="0.98332442760000005" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cEe-Zj-r1H" customClass="RecordStatus" customModule="Replay" customModuleProvider="target">
+                                <rect key="frame" x="8" y="20" width="40" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="PQg-9w-v8L"/>
                                     <constraint firstAttribute="width" secondItem="cEe-Zj-r1H" secondAttribute="height" multiplier="1:1" id="QSj-FJ-Vv0"/>
@@ -36,15 +70,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="2NF-Dr-ggt" secondAttribute="bottom" id="WKY-4P-eVT"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="cEe-Zj-r1H" secondAttribute="bottom" constant="8" id="adi-e3-9N0"/>
                             <constraint firstItem="2NF-Dr-ggt" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="eBH-R4-CJt"/>
                             <constraint firstItem="2NF-Dr-ggt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="f0q-Lp-v3z"/>
                             <constraint firstAttribute="trailing" secondItem="2NF-Dr-ggt" secondAttribute="trailing" id="k9c-9Q-du6"/>
+                            <constraint firstItem="cEe-Zj-r1H" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="qBT-hJ-NkO"/>
                             <constraint firstItem="cEe-Zj-r1H" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="vrB-PJ-6TZ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="WFI-HO-yQx"/>
                     <connections>
+                        <outlet property="captureProgressInner" destination="Pzz-kJ-YzH" id="1lY-7q-50M"/>
+                        <outlet property="captureProgressView" destination="EUW-Fq-bJt" id="R61-f0-Ndp"/>
                         <outlet property="liveView" destination="2NF-Dr-ggt" id="ZiZ-Ch-Uxy"/>
                         <outlet property="recordStatusView" destination="cEe-Zj-r1H" id="RAq-IJ-jiw"/>
                     </connections>

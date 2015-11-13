@@ -16,6 +16,7 @@
 		2B7FE8DC1BF4F90700F97993 /* Scrubber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7FE8DB1BF4F90700F97993 /* Scrubber.swift */; };
 		2B7FE8DE1BF4F94200F97993 /* RecordStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7FE8DD1BF4F94200F97993 /* RecordStatus.swift */; };
 		2B7FE8E01BF4F9AD00F97993 /* CaptureProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7FE8DF1BF4F9AD00F97993 /* CaptureProgress.swift */; };
+		2BF36F6E1BF581BE00079CBB /* InnerCaptureProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF36F6D1BF581BE00079CBB /* InnerCaptureProgress.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		2B7FE8DB1BF4F90700F97993 /* Scrubber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scrubber.swift; sourceTree = "<group>"; };
 		2B7FE8DD1BF4F94200F97993 /* RecordStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordStatus.swift; sourceTree = "<group>"; };
 		2B7FE8DF1BF4F9AD00F97993 /* CaptureProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureProgress.swift; sourceTree = "<group>"; };
+		2BF36F6D1BF581BE00079CBB /* InnerCaptureProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InnerCaptureProgress.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,10 +64,10 @@
 		2B7FE8A71BF4DBE100F97993 /* Replay */ = {
 			isa = PBXGroup;
 			children = (
-				2B7FE8DF1BF4F9AD00F97993 /* CaptureProgress.swift */,
-				2B7FE8AA1BF4DBE100F97993 /* CaptureController.swift */,
-				2B7FE8BB1BF4DEDB00F97993 /* ReplayController.swift */,
+				2BF36F6C1BF57A8400079CBB /* ViewControllers */,
 				2B7FE8AC1BF4DBE100F97993 /* Main.storyboard */,
+				2B7FE8DF1BF4F9AD00F97993 /* CaptureProgress.swift */,
+				2BF36F6D1BF581BE00079CBB /* InnerCaptureProgress.swift */,
 				2B7FE8DB1BF4F90700F97993 /* Scrubber.swift */,
 				2B7FE8DD1BF4F94200F97993 /* RecordStatus.swift */,
 				2B7FE8BA1BF4DCBF00F97993 /* System */,
@@ -82,6 +84,15 @@
 				2B7FE8B41BF4DBE100F97993 /* Info.plist */,
 			);
 			name = System;
+			sourceTree = "<group>";
+		};
+		2BF36F6C1BF57A8400079CBB /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2B7FE8AA1BF4DBE100F97993 /* CaptureController.swift */,
+				2B7FE8BB1BF4DEDB00F97993 /* ReplayController.swift */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B7FE8AB1BF4DBE100F97993 /* CaptureController.swift in Sources */,
+				2BF36F6E1BF581BE00079CBB /* InnerCaptureProgress.swift in Sources */,
 				2B7FE8E01BF4F9AD00F97993 /* CaptureProgress.swift in Sources */,
 				2B7FE8DC1BF4F90700F97993 /* Scrubber.swift in Sources */,
 				2B7FE8DE1BF4F94200F97993 /* RecordStatus.swift in Sources */,
@@ -310,6 +322,7 @@
 				2B7FE8B91BF4DBE100F97993 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
